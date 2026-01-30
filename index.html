@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #1c2a38;
+      --primary: #3448fa;
+      --card: transparent;
+      --text: #1a1a1a;
+      --border: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: var(--bg);
+      background-color: #1c2a38;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: var(--card);
+      width: 360px;
+      padding: 32px;
+      border-radius: 14px;
+      
+      text-align: center;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .field {
+      position: relative;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 14px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      outline: none;
+      background: white;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--primary);
+    }
+
+    .field label {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      background: white;
+      padding: 0 4px;
+      color: #777;
+      font-size: 13px;
+      pointer-events: none;
+      transition: 0.2s;
+    }
+
+    .field input:focus + label,
+    .field input:not(:placeholder-shown) + label,
+    .field select:focus + label,
+    .field select:not([value=""]) + label {
+      top: -6px;
+      font-size: 11px;
+      color: var(--primary);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      font-weight: bold; 
+    }
+
+    button:hover {
+      opacity: 0.95;
+    }
+
+    .links {
+      margin-top: 18px;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .links a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+.region-field {
+  width: 30%;           /* make it skinnier */
+  min-width: 120px;
+  margin: 0 auto 16px;  /* center and add bottom spacing */
+}
+
+.region-field select {
+  width: 100%;
+  font-weight: bold; 
+  padding: 8px;
+  font-size: 12px;
+  background-color: #1c2a38; /* match page background */
+  color: #aaaaaa;            /* gray text */
+  border: 1px solid #555555; /* gray border */
+  border-radius: 4px;         /* optional rounded corners */
+}
+
+.region-field select option {
+  background-color: #1c2a38; /* keep dropdown options same as background */
+  color: #aaaaaa;            /* gray text */
+  font-weight: bold;  
+}
+.email-label {
+  display: block;        /* ensures it sits above the input */
+  margin-bottom: 6px;    /* space between label and input */
+  color: #ccc;           /* grey text */
+  font-weight: 500;      /* slightly bold */
+  font-size: 14px;
+  text-align: left;
+}
+.links a {
+  color: #aaaaaa;       /* grey color */
+  text-decoration: none; /* remove underline if you like */
+  font-weight: normal;    /* optional, keeps them from being bold */
+  display: block;         /* stack them vertically */
+  margin: 4px 0;          /* spacing between links */
+  font-weight: bold; 
+}
+
+.links a:hover {
+  color: #ffffff;         /* optional: turn white on hover */
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="logo">
+      <img
+        src="https://i.imgur.com/KA0S2bJ.jpeg"
+        alt="Logo"
+        width="80"
+        height="80"
+      />
+    </div>
+
+
+
+    <div class="field region-field">
+    <select id="region">
+
+        <option>US</option>
+        <option>Australia</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Europe</option>
+    </select>
+    <label></label>
+    </div>
+<label for="email" class="email-label">Email</label>
+    <div class="field">
+        
+      <input id="email" type="email" placeholder=" " />
+      <label></label>
+    </div>
+
+    <button onclick="login()">Continue</button>
+
+    <div class="links">
+      <a href="#">Login with an email code</a>
+      <a href="#">Forgot password?</a>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const region = document.getElementById("region").value;
+
+      if (email && region) {
+        window.location.href = "home.html";
+      } else {
+        alert("Please enter your email and select a region");
+      }
+    }
+  </script>
+
+</body>
+</html>
